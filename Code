@@ -16,7 +16,7 @@ int main() {
         printf("So it seems you have some experience with investing and finance. That's great! You should use my calculator for anything you know and I want you to try to build off what you know.\n");
         break;
         case 3:
-        printf("This is so amazing. You must know so much about this that this program can help you with so many different things. Try to use it to compare you're average retrun on investments vs. the S&P 500 or the Nasdaq. DOn't stop learning!!!\n");
+        printf("This is so amazing. You must know so much about this that this program can help you with so many different things. Try to use it to compare you're average retrun on investments vs. the S&P 500 or the Nasdaq. Or why don't you calculate how much you will end up making from a treasury bond or how mcuh your saving account will make vs your investment account if you diversify your portfolio. THE POSSIBILITES ARE ENDLESS!!!\n");
         
         
     }
@@ -42,8 +42,9 @@ int main() {
     for (int i = 0; i < totalMonths; i++) {
         double interestEarned = initialInvestment * monthlyInterestRate;
         initialInvestment += interestEarned + monthlyContribution;
-    }
         
+    }
+         printf("Total Value After %d months: %.2lf\n", totalMonths, initialInvestment);
     }
     else {
        printf("Enter initial investment amount: ");
@@ -67,11 +68,11 @@ int main() {
         double interestEarned = initialInvestment * monthlyInterestRate;
         initialInvestment += interestEarned + monthlyContribution;
     }
-        
+         printf("Total Value After %d years: %.2lf\n", investmentYears, initialInvestment);
     }
 
 
-    printf("Total Value After %d months: %.2lf\n", totalMonths, initialInvestment);
+   
 
     return 0;
 }
