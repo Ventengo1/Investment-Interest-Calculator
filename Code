@@ -2,12 +2,18 @@
 
 int main() {
     double initialInvestment, monthlyContribution, annualInterestRate, monthlyInterestRate;
-    int investmentYears, totalMonths;
+    int investmentYears, totalMonths, level;
+    
+    printf("Welome to this program I made where you will calculate how much interest you will make from an investment over a set period of time with a set amount of monthly contribution.\n\n");
+    printf("How experienced are you (1: Beginner 2: Intermidiate  3: Advanced: ");
+    scanf("%d", &level);
+    
+    
 
     printf("Enter initial investment amount: ");
     scanf("%lf", &initialInvestment);
 
-    printf("Enter monthly contribution amount: ");
+    printf("Enter monthly contribution amount (it's okay if it is nothing) : ");
     scanf("%lf", &monthlyContribution);
 
     printf("Enter investment time period in years: ");
@@ -26,7 +32,7 @@ int main() {
         initialInvestment += interestEarned + monthlyContribution;
     }
 
-    printf("Final investment amount: %.2lf\n", initialInvestment);
+    printf("Total Value After %d years: %.2lf\n", investmentYears, initialInvestment);
 
     return 0;
 }
