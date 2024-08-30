@@ -3,8 +3,7 @@
 int main() {
     double initialInvestment, monthlyContribution, annualInterestRate, monthlyInterestRate;
     int investmentYears, totalMonths;
-//reminder to add adjustable investment intrest earned
-    
+
     printf("Enter initial investment amount: ");
     scanf("%lf", &initialInvestment);
 
@@ -14,8 +13,11 @@ int main() {
     printf("Enter investment time period in years: ");
     scanf("%d", &investmentYears);
 
-    /
-    annualInterestRate = 0.05; 
+    printf("Enter annual interest rate (as a percentage): ");
+    scanf("%lf", &annualInterestRate);
+
+    
+    annualInterestRate /= 100;
     monthlyInterestRate = annualInterestRate / 12;
     totalMonths = investmentYears * 12;
 
@@ -24,7 +26,6 @@ int main() {
         initialInvestment += interestEarned + monthlyContribution;
     }
 
-    
     printf("Final investment amount: %.2lf\n", initialInvestment);
 
     return 0;
