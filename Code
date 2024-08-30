@@ -8,9 +8,45 @@ int main() {
     printf("How experienced are you (1: Beginner 2: Intermidiate  3: Advanced: ");
     scanf("%d", &level);
     
+    switch (level) {
+        case 1: 
+        printf("Well, this is great. It is never to late to start investing. I hope this simple calculator will help you undertsand how much you can benifit from investing and saving money.\n");
+        break;
+        case 2: 
+        printf("So it seems you have some experience with investing and finance. That's great! You should use my calculator for anything you know and I want you to try to build off what you know.\n");
+        break;
+        case 3:
+        printf("This is so amazing. You must know so much about this that this program can help you with so many different things. Try to use it to compare you're average retrun on investments vs. the S&P 500 or the Nasdaq. DOn't stop learning!!!\n");
+        
+        
+    }
+    
+    if (level == 3) {
+        printf("Enter initial investment amount: ");
+    scanf("%lf", &initialInvestment);
+
+    printf("Enter monthly contribution amount (it's okay if it is nothing) : ");
+    scanf("%lf", &monthlyContribution);
+
+    printf("Enter investment time period in months: ");
+    scanf("%d", &totalMonths);
+
+    printf("Enter annual interest rate (as a percentage): ");
+    scanf("%lf", &annualInterestRate);
+
+    
+    annualInterestRate /= 100;
+    monthlyInterestRate = annualInterestRate / 12;
     
 
-    printf("Enter initial investment amount: ");
+    for (int i = 0; i < totalMonths; i++) {
+        double interestEarned = initialInvestment * monthlyInterestRate;
+        initialInvestment += interestEarned + monthlyContribution;
+    }
+        
+    }
+    else {
+       printf("Enter initial investment amount: ");
     scanf("%lf", &initialInvestment);
 
     printf("Enter monthly contribution amount (it's okay if it is nothing) : ");
@@ -31,8 +67,11 @@ int main() {
         double interestEarned = initialInvestment * monthlyInterestRate;
         initialInvestment += interestEarned + monthlyContribution;
     }
+        
+    }
 
-    printf("Total Value After %d years: %.2lf\n", investmentYears, initialInvestment);
+
+    printf("Total Value After %d months: %.2lf\n", totalMonths, initialInvestment);
 
     return 0;
 }
