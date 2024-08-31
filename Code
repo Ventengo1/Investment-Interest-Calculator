@@ -6,7 +6,7 @@ int main() {
     int investmentYears, totalMonths, level, div_int, shares, paymentFrequency, loanTermYears, loanTermMonths;
     float stockPrice, dividendYield, monthlyInterestRate;
 
-    printf("Welcome to this program where you will calculate how much interest you will make from an investment over a set period of time with a set amount of monthly contribution.\n\n");
+    printf("Welcome to this programI created which has 3 different functions. \n 1. Stock Dividend Calculation \n 2. Savings Investing Interest Calculator \n 3. Loan Interest Payment calculator\n I hope you enjoy. THis program was initially made fo rhack lcub arcade but I feel it can help anybody with absic financial caluclator needs..\n\n");
     printf("How experienced are you (1: Beginner 2: Intermediate 3: Advanced): ");
     scanf("%d", &level);
 
@@ -82,13 +82,15 @@ int main() {
                 return 1; 
         }
     } else if (div_int == 3) {
+        printf("There are many types of loans. This calculator is only for one of them where you pay interest every year and pay the full amount back at the end. But, this isn't the only type, there are many more too!!!");
+        
          printf("Enter loan amount: ");
     scanf("%lf", &loanAmount);
 
-    printf("Enter annual interest rate (as a percentage): ");
+    printf("Enter te interest rate (as a percentage, it can have up to 2 decimals): ");
     scanf("%lf", &annualInterestRate);
 
-    printf("Enter loan term in years: ");
+    printf("Enter loan term in years (ow long you have to pay off loan/ how long loan lasts): ");
     scanf("%d", &loanTermYears);
 
     annualInterestRate /= 100;
@@ -103,7 +105,7 @@ int main() {
     printf("Total interest paid: %.2lf\n", totalInterest);
 
     
-    double finalYearPayment = loanAmount + yearlyPayment;
+    double finalYearPayment = loanAmount;
     printf("Final year payment: %.2lf\n", finalYearPayment);
     } else {
         printf("Invalid input. Please enter 1 for Dividend or 2 for Interest.\n");
