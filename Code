@@ -2,7 +2,7 @@
 
 int main() {
     double initialInvestment, monthlyContribution, annualInterestRate, monthlyInterestRate;
-    int investmentYears, totalMonths, level, div_int;
+    int investmentYears, totalMonths, level, div_int, shares, paymentFrequency;
     float stockPrice, dividendYield;
 
     printf("Welcome to this program where you will calculate how much interest you will make from an investment over a set period of time with a set amount of monthly contribution.\n\n");
@@ -75,15 +75,35 @@ int main() {
             printf("Total Value After %d years: %.2lf\n", investmentYears, initialInvestment);
         }
     } else if (div_int == 1) {
-        printf("Enter the current stock price: ");
-        scanf("%f", &stockPrice);
+       printf("Enter the current stock price: ");
+    scanf("%f", &stockPrice);
 
-        printf("Enter the dividend yield (as a percentage): ");
-        scanf("%f", &dividendYield);
+    printf("Enter the annual dividend yield (as a percentage): ");
+    scanf("%f", &dividendYield);
 
-        float dividend = (stockPrice * dividendYield) / 100;
+    printf("Number of shares owned: ");
+    scanf("%d", &shares);
 
-        printf("The dividend per share is: %.2f\n", dividend);
+    printf("Dividend payment frequency (1: Annually, 2: Quarterly, 3: Monthly): ");
+    scanf("%d", &paymentFrequency);
+
+    float dividendPerShare = (stockPrice * dividendYield) / 100;
+    float annualDividend = dividendPerShare * shares;
+
+    switch (paymentFrequency) {
+        case 1:
+            printf("Annual dividend: %.2f\n", annualDividend);
+            break;
+        case 2:
+            printf("Quarterly dividend: %.2f\n", annualDividend / 4);
+            break;
+        case 3:
+            printf("Monthly dividend: %.2f\n", annualDividend / 12);
+            break;
+        default:
+            printf("Invalid payment frequency. Please enter 1, 2, or 3.\n");
+            return 1; // Exit with an error code
+    }
     } else {
         printf("Invalid input. Please enter 1 for Dividend or 2 for Interest.\n");
         return 1; // Exit with an error code
