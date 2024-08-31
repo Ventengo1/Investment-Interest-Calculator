@@ -2,7 +2,7 @@
 
 int main() {
     double initialInvestment, monthlyContribution, annualInterestRate, monthlyInterestRate;
-    int investmentYears, totalMonths, level;
+    int investmentYears, totalMonths, level, div_int;
     
     printf("Welome to this program I made where you will calculate how much interest you will make from an investment over a set period of time with a set amount of monthly contribution.\n\n");
     printf("How experienced are you (1: Beginner 2: Intermidiate  3: Advanced: ");
@@ -16,10 +16,14 @@ int main() {
         printf("So it seems you have some experience with investing and finance. That's great! You should use my calculator for anything you know and I want you to try to build off what you know.\n");
         break;
         case 3:
-        printf("This is so amazing. You must know so much about this that this program can help you with so many different things. Try to use it to compare you're average retrun on investments vs. the S&P 500 or the Nasdaq. Or why don't you calculate how much you will end up making from a treasury bond or how mcuh your saving account will make vs your investment account if you diversify your portfolio. THE POSSIBILITES ARE ENDLESS!!!\n");
+        printf("This is so amazing. You must know so much about this that this program can help you with so many different things. Try to use it to compare you're average retrun on investments vs. the S&P 500 or the Nasdaq. Or why don't you calculate how much you will end up making from a treasury bond or how mcuh your saving account will make vs your investment account if you diversify your portfolio. THE POSSIBILITES ARE ENDLESS!!!\n");\
+        
+        printf("Would you like to calculate Dividend or Interest(Enter 1 for Dividend and Enter 2 for Interest)  : ")
+        scanf("%d", &div_int);
         
         
     }
+    If ()
     
     if (level == 3) {
         printf("Enter initial investment amount: ");
@@ -32,7 +36,7 @@ int main() {
     scanf("%d", &totalMonths);
 
     printf("Enter annual interest rate (as a percentage): ");
-    scanf("%lf", &annualInterestRate);
+    scanf("%2f", &annualInterestRate);
 
     
     annualInterestRate /= 100;
