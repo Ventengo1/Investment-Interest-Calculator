@@ -2,7 +2,7 @@
 #include <math.h>
 
 int main() {
-    double initialInvestment, monthlyContribution, annualInterestRate, loanAmount, monthlyPayment;
+    double initialInvestment, monthlyContribution, annualInterestRate, loanAmount, monthlyPayment, yearlyPayment;
     int investmentYears, totalMonths, level, div_int, shares, paymentFrequency, loanTermYears, loanTermMonths;
     float stockPrice, dividendYield, monthlyInterestRate;
 
@@ -82,23 +82,29 @@ int main() {
                 return 1; 
         }
     } else if (div_int == 3) {
-        printf("Enter loan amount: ");
-        scanf("%lf", &loanAmount);
+         printf("Enter loan amount: ");
+    scanf("%lf", &loanAmount);
 
-        printf("Enter annual interest rate (as a percentage): ");
-        scanf("%lf", &annualInterestRate);
+    printf("Enter annual interest rate (as a percentage): ");
+    scanf("%lf", &annualInterestRate);
 
-        printf("Enter loan term in years: ");
-        scanf("%d", &loanTermYears);
+    printf("Enter loan term in years: ");
+    scanf("%d", &loanTermYears);
 
-       
-        monthlyInterestRate = annualInterestRate / 12 / 100;
-        loanTermMonths = loanTermYears * 12;
+    annualInterestRate /= 100;
 
-        
-        monthlyPayment = (loanAmount * monthlyInterestRate) * pow(1 + monthlyInterestRate, loanTermMonths) / (pow(1 + monthlyInterestRate, loanTermMonths) - 1);
+    
+    yearlyPayment = loanAmount * annualInterestRate / (1 - pow(1 + annualInterestRate, -loanTermYears));
 
-        printf("Monthly payment: %.2lf\n", monthlyPayment);
+    
+    double totalInterest = yearlyPayment * loanTermYears - loanAmount;
+
+    printf("Yearly payment: %.2lf\n", yearlyPayment);
+    printf("Total interest paid: %.2lf\n", totalInterest);
+
+    
+    double finalYearPayment = loanAmount + yearlyPayment;
+    printf("Final year payment: %.2lf\n", finalYearPayment);
     } else {
         printf("Invalid input. Please enter 1 for Dividend or 2 for Interest.\n");
         return 1; 
